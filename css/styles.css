@@ -1,0 +1,96 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+.body{
+    top: 0px;
+    left: 0px;
+    background:url("../images/Home.svg") ;
+    position: absolute;
+    width: 1439px;
+    height: 982px;
+    padding: 0%;
+    margin: 0%;
+    left: 0px;
+    right: -4px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: 0px;
+}
+#Services{
+    position: relative;
+    width: 1435px;
+    height: 2166px;
+    left: -9px;
+    top: 926.5px;
+
+    background: #FFFFFF;
+}
+#About{
+    background-image: url("../images/About.png");
+    position: absolute;
+    width: 1438px;
+    height: 1287px;
+    left: 4px;
+    top: 3178px;
+    background-color: blue;
+}
+#testimonies{
+    position: absolute;
+    width: 1438px;
+    height: 982px;
+    left: 0px;
+    top: 4465px;
+
+    background: #F3F3F3;
+
+}#contact{
+    position: absolute;
+    width: 1438px;
+    height: 1152px;
+    left: 0px;
+    top: 5443px;
+    
+    background: #FFFFFF;
+}
+.firstcontactbox{
+        background:url("../images/contact 3.png");
+        position: absolute;
+        width: 640px;
+        height: 773px;
+        left: 50px;
+        top: 251px;
+        background-repeat:no-repeat ;
+        background-size: contain;
+}
+.secondcontactbox{
+    position: absolute;
+    width: 670px;
+    height: 773px;
+    left: 690px;
+    top: 251px;
+    /* background-image: url("../images/contact 4.png");
+    background-repeat: no-repeat;
+    b */
+}
+.footer{
+    background: url("../images/footer.png");
+    position: absolute;
+    width: 1438px;
+    height: 387px;
+    left: -1px;
+    top: 6595px;
+}
+.head{
+    position: absolute;
+    width: 1438px;
+    height: 120px;
+    left: 0px;
+    top: 0px;
+
+    background: linear-gradient(180deg, #5E87FF 0%, rgba(94, 135, 255, 0) 100%);
+}
+.navbar:hover{
+    color: #3865eb;
+}
