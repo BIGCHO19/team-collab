@@ -9,10 +9,10 @@
 </head>
 
 <body>
-</div>
+ </div>
 
-<div class="body">
-   <div class="head">
+ <div class="body">
+   <nav class="head">
         <img style="padding:10px;"  src="images/Logo.png" alt="Logo">
         <img  src="images/image 16.png" alt="image" style="position: absolute;
             width: 710px;
@@ -20,7 +20,7 @@
             left: 730px;
             top: 110px;">
 
-        <div class="navbar" style="position: absolute;
+        <ul class="navbar" style="position: absolute;
             width: 665.56px;
             height: 37px;
             left: 690px;
@@ -31,25 +31,25 @@
             font-weight: 400;
             font-size: 20px;
             line-height: 37px;
-            color: #FFFFFF;">
+            color: #FFFFFF;"><li>
             Home
             <a style="color:#FFFFFF;
             text-decoration: none;" 
-            href="#Services">Services</a>
+            href="#Services">Services</a></li>
 
-            <a style="color:#FFFFFF;
+           <li> <a style="color:#FFFFFF;
             text-decoration: none;" 
-            href="#About">About</a>
+            href="#About">About</a></li>
             
-            <a style="color: white; 
+            <li><a style="color: white; 
             text-decoration: none;" 
-            href="#testimonies">Testimonies</a>
-            
+            href="#testimonies">Testimonies</a></li>
+            <li>
             <a style="color: white; text-decoration: none;" href="#contact">Contact</a>
-
+            </li>
         
-        </div>
-    </div>
+   </ul>
+    </nav>
     <a  href="#Services">
         <button class="hover:bg-white" style="box-sizing: border-box;
         cursor: pointer;
@@ -123,10 +123,10 @@
         ">
         Get Started
     </button></a>
-</div>
+ </div>
 
 
-<div id="Services">
+  <div id="Services">
     <div style="position: absolute;
         width: 324px;
         height: 96px;
@@ -845,10 +845,79 @@
         right: 19.58%;
         top: 26.1%;
         bottom: 66.18%;
-        " href=""><img src="images/LinkedIn.png" alt=""</a>
+        " href=""><img src="images/LinkedIn.png" alt=""></a>
 
         
-</div>
+ </div>
+ <script>
+ const navLinks = document.querySelectorAll('nav ul li a');
 
+navLinks.forEach(function(eachLink){
+  eachLink.addEventListener('click', smoothScroll)
+});
+
+function smoothScroll(event){
+    event.preventDefault();
+    
+    const targetID = event.target.getAttribute('href');
+    const targetSection = document.querySelector(targetID);
+    const originalTop = Math.floor(targetSection.getBoundingClientRect().top) - 100;
+    window.scrollBy({top: originalTop, left: 0, behavior: 'smooth'});
+}
+
+window.addEventListener('load', function(){
+    const posts = document.querySelectorAll('section');
+    let postTops = [];
+    let pageTop;
+    let counter = 1;
+    let prevCounter = 1;
+    let doneResizing;
+    
+
+    posts.forEach(function(post){
+        postTops.push( Math.floor(post.getBoundingClientRect().top + window.pageYOffset));
+    });
+    this.window.addEventListener('scroll', function(){
+        pageTop = window.pageYOffset +150;
+        if (pageTop > postTops[counter]) {
+            counter++;
+            console.log(`scrolling down ${counter}`);
+        } else if(counter > 1 && pageTop < postTops[counter-1]){
+            counter--;            
+        }
+
+        if (counter != prevCounter){
+            navLinks.forEach(function(eachLink){
+                eachLink.removeAttribute('class');
+            });
+
+            const thisLink = document.querySelector(`nav ul li:nth-child(${counter}) a`);
+            thisLink.className = 'selected';
+            prevCounter = counter; 
+        }
+    });
+
+    this.window.addEventListener('resize', function(){
+        this.clearTimeout(doneResizing);
+        doneResizing = this.setTimeout(function(){
+            resetPagePosition();
+        }, 500);
+    });
+   function resetPagePosition(){
+    postsTops = [];
+     posts.forEach(function(post){
+        postsTops.push(Math.floor(post.getBoundingClientRect().top + window.pageYOffset));
+     });
+     const PagePosition = window.pageYOffset + 150;
+     counter = 0; 
+
+     postsTops.forEach(function(post){
+        if(PagePosition>post){
+            counter++;
+        }
+     });
+   }
+});</script>
+</body>
 
 
